@@ -44,7 +44,7 @@ export const App = () => {
 
   const todosContext = useMemo(() => ({
     todos: todos,
-    addTodo: (todoId) => dispatchTodos({ type: "ADD_TODO", todoId }),
+    addTodo: (todoLabel) => dispatchTodos({ type: "ADD_TODO", todoLabel }),
     deleteTodo: (todoId) => dispatchTodos({ type: "DELETE_TODO", todoId }),
     toggleTodo: (todoId) => dispatchTodos({ type: "TOGGLE_TODO", todoId }),
   }), [todos]);

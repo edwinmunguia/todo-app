@@ -3,11 +3,14 @@ import { TodosContext } from '../../todo-context';
 import './todo-form.scss';
 
 export const TodoForm = () => {
-  const { todos, setTodos } = React.useContext(TodosContext);
+  const { addTodo } = React.useContext(TodosContext);
   const [task, setTask] = React.useState('');
 
   const handleAddTodo = () => {
     // Fin an ability to add new task
+    if (task.match(/^(?!\s*$).+/)) {
+      addTodo(task);
+    }
   };
 
   const handleKeyUp = (e) => {

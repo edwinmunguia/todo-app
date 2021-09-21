@@ -1,7 +1,8 @@
 const todosReducer = (prevState, action) => {
     switch (action.type) {
         case 'ADD_TODO': {
-            return [...prevState, action.newTodo];
+            const todoId = prevState[prevState.length - 1].id + 1;
+            return [...prevState, { id: todoId, label: action.todoLabel, checked: false }];
         }
         case 'DELETE_TODO': {
             return prevState.filter((todo) => todo.id !== action.todo.id);
