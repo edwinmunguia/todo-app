@@ -1,8 +1,9 @@
-import * as React from 'react';
+import React, { useMemo, useReducer } from 'react';
 import { TodoForm } from './components/todo-form';
 import { TodoList } from './components/todo-list';
 import { TodoResults } from './components/todo-results';
 import { TodosContext } from './todo-context';
+import todosReducer from './reducers/TodosReducer';
 import './index.scss';
 
 const todosTemplate = [
@@ -39,7 +40,7 @@ const todosTemplate = [
 ];
 
 export const App = () => {
-  const [todos, setTodos] = React.useState([]);
+  const [todos, dispatchTodos] = useReducer(todosReducer, todosTemplate);
 
   return (
     <div className="root">
