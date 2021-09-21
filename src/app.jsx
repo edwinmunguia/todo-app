@@ -42,9 +42,16 @@ const todosTemplate = [
 export const App = () => {
   const [todos, dispatchTodos] = useReducer(todosReducer, todosTemplate);
 
+  const todosContext = useMemo(() => ({
+    todos: todos,
+    addTodo: (todoId) => dispatchTodos({ type: "ADD_TODO", todoId }),
+    deleteTodo: (todoId) => dispatchTodos({ type: "DELETE_TODO", todoId }),
+    toggleTodo: (todoId) => dispatchTodos({ type: "TOGGLE_TODO", todoId }),
+  }), [todos]);
+
   return (
     <div className="root">
-      <TodosContext.Provider value={{ todos }}>
+      <TodosContext.Provider value={todosContext}>
         <TodoList />
         <TodoResults />
         <TodoForm />
