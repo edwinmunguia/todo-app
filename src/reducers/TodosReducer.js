@@ -8,7 +8,7 @@ const todosReducer = (prevState, action) => {
             return prevState.filter((todo) => todo.id !== action.todo.id);
         }
         case 'TOGGLE_TODO': {
-            const mappedList = prevState.map((todo) => todo.id === action.todo.id ? { ...todo, checked: !todo.checked } : { ...todo });
+            const mappedList = prevState.map((todo) => todo.id === action.todoId ? { ...todo, checked: !todo.checked } : { ...todo });
             return mappedList;
         }
         default:

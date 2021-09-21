@@ -12,6 +12,7 @@ export const TodoList = () => {
 
   const toggleCheck = (id) => {
     // Fix an ability to toggle task
+    toggleTodo(id);
   };
 
   const handleKeyUp = (e, id) => {
