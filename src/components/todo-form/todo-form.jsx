@@ -10,6 +10,7 @@ export const TodoForm = () => {
     // Fin an ability to add new task
     if (task.match(/^(?!\s*$).+/)) {
       addTodo(task);
+      setTask('');
     }
   };
 
