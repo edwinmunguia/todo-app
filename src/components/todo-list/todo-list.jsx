@@ -8,6 +8,7 @@ export const TodoList = () => {
 
   const handleDelete = (id) => {
     // Fix an ability to delete task
+    deleteTodo(id);
   };
 
   const toggleCheck = (id) => {
